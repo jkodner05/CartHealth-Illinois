@@ -3,6 +3,10 @@ $(function() {
   var mapOptions = {
     center: new gm.LatLng(40.0000, -89.6500),
     zoom: 6,
+    draggable: false,
+    zoomControl: false,
+    scrollwheel: false,
+    disableDoubleClickZoom: true,    
     mapTypeId: gm.MapTypeId.ROADMAP
   }
   var map = new gm.Map(document.getElementById('mapCanvas'), mapOptions);
