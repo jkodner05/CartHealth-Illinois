@@ -9,6 +9,13 @@ $(function() {
     disableDoubleClickZoom: true,    
     mapTypeId: gm.MapTypeId.ROADMAP
   }
+  var layerOptions = {
+    strokeColor: '#FFFFFF',
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: '#FF0000',
+    fillOpacity: 0.34
+  }
   var map = new gm.Map(document.getElementById('mapCanvas'), mapOptions);
   var geoJSON = $.ajax({
     type: 'GET',
@@ -27,28 +34,20 @@ $(function() {
         return new gm.LatLng(coordPair["Lat"],coordPair["Long"]);
       }
     );
+    layerOptions.paths = countyBorder;
     borders[countyName] = countyBorder;
-    counties[countyName] = new gm.Polygon({
-      paths: countyBorder,
-      strokeColor: '#FFFFFF',
-      strokeOpacity: 0.8,
-      strokeWeight: 2,
-      fillColor: '#FF0000',
-      fillOpacity: 0.34
-    });
+    counties[countyName] = new gm.Polygon(layerOptions);
     counties[countyName].setMap(map);
   });
   geoData = null;
+  function changeColor(countyName,color) {
+    layerOptions.fillColor = color;
+    layerOptions.paths=borders[countyName];
+    counties[countyName].setOptions(layerOptions);
+  }
   $("#changeColor").click(function() {
     var countyName = $("#countyName").val();
-    counties[countyName].setOptions({
-      paths: borders[countyName],
-      strokeColor: '#FFFFFF',
-      strokeOpacity: 0.8,
-      strokeWeight: 2,
-      fillColor: '#0000FF',
-      fillOpacity: 0.34
-    });
+    changeColor(countyName,"#0000FF");
     return false;
   });
 });
