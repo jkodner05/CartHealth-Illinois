@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="CSS_site_main.txt"/>
+		<title></title>
+	</head>
+	<body>
+		<div id="header">
+		    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvkY8vcZarqHlcqsyDASSGvb7cipEgkLJJLao-DujVG865dRJXYg", id="logo">
+			<p id="name">CartHealth Illinois</p>
+			<a href="https://www.google.com/"><p id="contact">Contact</p></a>
+			<a href="https://www.google.com/"><p id="sources">Sources</p></a>
+		    <a href="https://www.google.com/"><p id="compare">Compare It!</p></a>
+		    <a href="https://www.google.com/"><p id="home">Home</p></a>
+		</div>
+		<div class="content">
+			<h4>Title</h4>
+			<p>Content.</p>
+		</div>
+		<div id="footer">
+			<p>Links and stuff</p>
+		</div>
+	</body>
+</html>
