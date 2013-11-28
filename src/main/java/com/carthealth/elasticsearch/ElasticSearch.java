@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.codehaus.jettison.json.JSONArray;
+import org.codehaus.jettison.json.JSONObject;
+import org.codehaus.jettison.json.JSONTokener;
 import org.elasticsearch.*;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.search.SearchType;
@@ -18,6 +21,7 @@ import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.index.query.FilterBuilders;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
 
 public class ElasticSearch {
 
@@ -49,22 +53,37 @@ public class ElasticSearch {
 		//client = new TransportClient().addTransportAddress(new InetSocketTransportAddress(CONNECTION, 9300));
 	}
 
+	public List<County> getCountiesFromResult(JestResult result)
+	{
+		List<County> counties = new ArrayList<County>();
+		List<Stat> stats = result.getSourceAsObjectList(Stat.class);	
+		for(Stat stat : stats)
+		{
+			counties.addAll(stat.counties);
+		}
+		return counties;
+	}
+	
 	public List<String> getColorsByStat(String statName)
 	{
 		List<String> javascriptCalls = new ArrayList<String>();
-		Search search = new Search.Builder("{name:" + statName + "}")
+		SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+		searchSourceBuilder.query(QueryBuilders.queryString("name:" + statName));
+		Search search = new Search.Builder(searchSourceBuilder.toString())
         // multiple index or types can be added.
-        .addIndex("INDEX")
-        .addIndex("TYPE")
+        .addIndex(INDEX)
+        .addType(TYPE)
         .build();
 
 		try {
 			JestResult result = client.execute(search);
+			List<County> counties = getCountiesFromResult(result);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Okay?");
+		
+
 		return javascriptCalls;
 	}
 	
