@@ -11,6 +11,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+  	<repositories>
+		 <repository>
+		   <id>sonatype</id>
+		   <name>Sonatype Groups</name>
+		   <url>https://oss.sonatype.org/content/groups/public/</url>
+		 </repository>
+  	</repositories>
+
     <dependencies>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -64,6 +72,11 @@
             <version>7.0.34.0</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+  			<groupId>io.searchbox</groupId>
+  			<artifactId>jest</artifactId>
+  			<version>0.0.5</version>
+		</dependency>
     </dependencies>
 
     <build>
