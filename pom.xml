@@ -17,6 +17,12 @@
 		   <name>Sonatype Groups</name>
 		   <url>https://oss.sonatype.org/content/groups/public/</url>
 		 </repository>
+		 <repository>
+        <id>releases</id>
+        <name>Releases</name>
+        <url>https://oss.sonatype.org/content/repositories/releases</url>
+      </repository>
+		 
   	</repositories>
 
     <dependencies>
@@ -77,6 +83,12 @@
   			<artifactId>jest</artifactId>
   			<version>0.0.5</version>
 		</dependency>
+		<dependency>
+	<groupId>org.elasticsearch</groupId>
+	<artifactId>elasticsearch</artifactId>
+	<version>0.90.7</version>
+</dependency>
+            
     </dependencies>
 
     <build>
