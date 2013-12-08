@@ -1,4 +1,5 @@
 $(function() {
+  alert("hi");
   var gm = google.maps
   var mapOptions = {
     center: new gm.LatLng(40.0000, -89.6500),
