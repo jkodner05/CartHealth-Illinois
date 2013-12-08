@@ -4,7 +4,7 @@
     xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
     id="WebApp_ID" version="2.5">
-    <display-name>Spring-Hibernate-Template</display-name>
+    <display-name>Spring Flattener</display-name>
  
     <welcome-file-list>
         <welcome-file>map_test.html</welcome-file>
@@ -22,7 +22,8 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>spring</servlet-name>
-        <url-pattern>*</url-pattern>
+      <servlet-name>spring</servlet-name>
+      <url-pattern>/</url-pattern>
+      <url-pattern>/map_test.html</url-pattern>
     </servlet-mapping>
 </web-app>
