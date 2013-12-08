@@ -40,6 +40,17 @@ $(function() {
   });
   geoData = null;
   $("#changeColor").click(function() {
+    var bounce = $.ajax({
+      type: 'POST',
+      url: '../bounce',
+      dataType: 'json',
+      success: function(response) {
+          alert(response)
+        },
+      data: ["stat1","stat2","stat3"],
+      async: false
+    });
+    alert(bounce);
     var countyName = $("#countyName").val();
     counties[countyName].setOptions({
       paths: borders[countyName],
