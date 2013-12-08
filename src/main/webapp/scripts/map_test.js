@@ -15,7 +15,7 @@ $(function() {
     type: 'GET',
     url: '../data/counties.json',
     dataType: 'json',
-    success: function() {},
+    success: function(blah) {alert("Google: ",json.serialize(blah));},
     data: {},
     async: false
   });
@@ -46,7 +46,7 @@ $(function() {
       url: '../bounce',
       dataType: 'json',
       success: function(response) {
-          alert(response)
+          alert(json.stringify(response));
         },
       data: ["stat1","stat2","stat3"],
       async: false
