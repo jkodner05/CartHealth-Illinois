@@ -15,7 +15,7 @@ $(function() {
     type: 'GET',
     url: '../data/counties.json',
     dataType: 'json',
-    success: function(blah) {alert("Google: "); alert(json.serialize(blah));},
+    success: function(blah) {alert("Google: "); alert(json.stringify(blah));},
     data: {},
     async: false
   });
