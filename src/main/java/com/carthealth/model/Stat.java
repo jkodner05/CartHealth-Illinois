@@ -1,4 +1,4 @@
-package com.carthealth.elasticsearch;
+package com.carthealth.model;
 
 import java.util.List;
 
