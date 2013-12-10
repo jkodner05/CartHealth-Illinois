@@ -20,9 +20,9 @@ $(function() {
     async: false
   });
   alert(geoJSON);
-  alert(json.stringify(geoJSON));
+  alert(JSON.stringify(geoJSON));
   var geoData = $.parseJSON(geoJSON["responseText"]);
-  alert(json.stringify(geoData));
+  alert(JSON.stringify(geoData));
   var counties = {};
   var borders = {};
   $.each(geoData, function(countyName, coordList) {
