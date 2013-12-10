@@ -9,11 +9,11 @@ $(function() {
     scrollwheel: false,
     disableDoubleClickZoom: true,    
     mapTypeId: gm.MapTypeId.ROADMAP
-  }
+  };
   var map = new gm.Map(document.getElementById('mapCanvas'), mapOptions);
   var geoJSON = $.ajax({
     type: 'GET',
-    url: '../data/counties.json',
+    url: '/data/counties.json',
     dataType: 'json',
     success: function(blah) {alert("Google: "); alert(json.stringify(blah));},
     data: {},
