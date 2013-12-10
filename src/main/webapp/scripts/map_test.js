@@ -15,12 +15,12 @@ $(function() {
     type: 'GET',
     url: '/data/counties.json',
     dataType: 'json',
-    success: function(blah) {alert("Google: "); alert(json.stringify(blah));},
+    success: function(blah) {alert("Google: ");},
     data: {},
     async: false
   });
-  alert(geoJSON);
   var geoData = $.parseJSON(geoJSON["responseText"]);
+  alert(geoData);
   var counties = {};
   var borders = {};
   $.each(geoData, function(countyName, coordList) {
