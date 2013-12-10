@@ -19,6 +19,7 @@ $(function() {
     data: {},
     async: false
   });
+  alert(geoJSON);
   var geoData = $.parseJSON(geoJSON["responseText"]);
   var counties = {};
   var borders = {};
