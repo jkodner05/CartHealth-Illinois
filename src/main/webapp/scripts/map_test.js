@@ -1,5 +1,4 @@
 $(function() {
-  alert("hi");
   var gm = google.maps;
   var mapOptions = {
     center: new gm.LatLng(40.0000, -89.6500),
@@ -19,10 +18,7 @@ $(function() {
     data: {},
     async: false
   });
-  alert(geoJSON);
-  alert(JSON.stringify(geoJSON));
   var geoData = $.parseJSON(geoJSON["responseText"]);
-  alert(JSON.stringify(geoData));
   var counties = {};
   var borders = {};
   $.each(geoData, function(countyName, coordList) {
