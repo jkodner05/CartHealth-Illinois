@@ -44,13 +44,12 @@ $(function() {
       type: 'POST',
       url: '../bounce',
       dataType: 'json',
-      success: function(response) {
-          alert(json.stringify(response));
-        },
+      success: function() {},
       data: ["stat1","stat2","stat3"],
       async: false
     });
     alert(bounce);
+    alert(JSON.stringify(bounce));
     var countyName = $("#countyName").val();
     counties[countyName].setOptions({
       paths: borders[countyName],
