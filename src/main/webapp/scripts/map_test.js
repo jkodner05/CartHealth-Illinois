@@ -45,7 +45,7 @@ $(function() {
       url: '/bounce',
       dataType: 'json',
       success: function() {},
-      data: ["stat1","stat2","stat3"],
+      data: "foo",
       async: false
     });
     alert(bounce);
