@@ -10,8 +10,9 @@ margin: 0;
 padding: 0
 }
 
-#map_canvas
+#mapCanvas
 {
-height: 50%;
-width: 50%
+position:relative;
+height: 30em;
+width:50em;
 }
