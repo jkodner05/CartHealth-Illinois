@@ -42,7 +42,7 @@ $(function() {
   $("#changeColor").click(function() {
     var bounce = $.ajax({
       type: 'POST',
-      url: '../bounce',
+      url: '/bounce',
       dataType: 'json',
       success: function() {},
       data: ["stat1","stat2","stat3"],
