@@ -1,4 +1,4 @@
-package com.carthealth.view;
+package main.java.com.carthealth.view;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;

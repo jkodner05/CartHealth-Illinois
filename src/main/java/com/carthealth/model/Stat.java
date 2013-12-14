@@ -1,4 +1,4 @@
-package com.carthealth.model;
+package main.java.com.carthealth.model;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.carthealth.model;
+package main.java.com.carthealth.model;
 
 import io.searchbox.client.JestClient;
 import io.searchbox.client.JestClientFactory;
