@@ -17,7 +17,6 @@
     <property name="suffix" value=".html" />
     </bean>
     
-    <mvc:resources mapping="/bounce" location="/WEB-INF/bounce.json" />
     <mvc:resources mapping="/" location="/WEB-INF/" />
     <mvc:annotation-driven/>
     

@@ -41,8 +41,8 @@ $(function() {
   geoData = null;
   $("#changeColor").click(function() {
     var bounce = $.ajax({
-      type: 'POST',
-      url: '/bounce',
+      type: 'GET',
+      url: '/bounce.html',
       beforeSend: function(xhr) {
         xhr.setRequestHeader("Accept", "application/json");
         xhr.setRequestHeader("Content-Type", "application/json");
