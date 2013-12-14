@@ -49,7 +49,7 @@ $(function() {
       	},
       dataType: "json",
       success: function() {},
-      data: $.toJSON("foo"),
+      data: "foo",
       async: false
     });
     alert(bounce);
