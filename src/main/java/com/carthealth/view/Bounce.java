@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -115,8 +116,8 @@ public class Bounce {
     "Winnebago",
     "Woodford"};
   
-  @RequestMapping(value="/bounce",method=RequestMethod.POST,consumes="application/json")
-  public String getStats(@RequestParam String ) {
+  @RequestMapping(value="/bounce")
+  public String getStats(@RequestParam String token) {
     String bounce = "{\"msg\":\"Hi there JS!\",";
     bounce = bounce + "\"" + token + "\": null,";
     bounce = bounce + "\"end\":null}";
