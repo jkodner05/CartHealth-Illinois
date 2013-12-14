@@ -42,7 +42,11 @@ $(function() {
   $("#changeColor").click(function() {
     var bounce = $.ajax({
       type: 'POST',
-      url: '/bounce',
+      url: $("#countyForm").attr("action"),
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader("Accept", "application/json");
+        xhr.setRequestHeader("Content-Type", "application/json");
+      	},
       dataType: 'json',
       success: function() {},
       data: "foo",

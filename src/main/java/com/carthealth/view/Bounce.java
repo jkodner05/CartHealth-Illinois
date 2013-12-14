@@ -116,7 +116,7 @@ public class Bounce {
     "Winnebago",
     "Woodford"};
   
-  @RequestMapping(value="/bounce")
+  @RequestMapping(value="/bounce", method=RequestMethod.PUT, consumes="application/json")
   public String getStats(@RequestParam String token) {
     String bounce = "{\"msg\":\"Hi there JS!\",";
     bounce = bounce + "\"" + token + "\": null,";
