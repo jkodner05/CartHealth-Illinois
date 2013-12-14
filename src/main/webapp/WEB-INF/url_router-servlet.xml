@@ -18,6 +18,7 @@
     </bean>
     
     <mvc:resources mapping="/" location="/WEB-INF/" />
+    <mvc:resources mapping="/bounce" location="/WEB-INF/bounce.json" />
     <mvc:annotation-driven/>
     
 </beans>
