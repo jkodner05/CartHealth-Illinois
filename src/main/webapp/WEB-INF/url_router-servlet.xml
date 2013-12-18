@@ -17,10 +17,10 @@
     <property name="suffix" value=".html" />
     </bean>
     
-    <bean name="/bounce.req" 
+    <bean name="/bounce.html"
       class="main.java.com.carthealth.view.Bounce" />
     
-    <mvc:view-controller path="/" view-name="/map_test.html" />
+    <mvc:resource path="/" location="/map_test.html" />
     <mvc:annotation-driven/>
     
 </beans>
