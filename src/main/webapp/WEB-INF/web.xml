@@ -9,4 +9,9 @@
     <welcome-file-list>
         <welcome-file>/map_test.html</welcome-file>
     </welcome-file-list>
+    
+    <servlet-mapping>
+        <servlet-name>url_router</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
 </web-app>
