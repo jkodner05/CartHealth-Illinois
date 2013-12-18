@@ -17,7 +17,7 @@
     <property name="suffix" value=".html" />
     </bean>
     
-    <bean name="/bounce.html" 
+    <bean name="/bounce.req" 
       class="main.java.com.carthealth.view.Bounce" />
     
     <mvc:view-controller path="/" view-name="/map_test.html" />
