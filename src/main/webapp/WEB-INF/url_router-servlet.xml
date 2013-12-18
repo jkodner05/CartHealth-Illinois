@@ -17,7 +17,10 @@
     <property name="suffix" value=".json" />
     </bean>
     
-    <mvc:resources mapping="/" location="/WEB-INF/" />
+    <mvc:view-controller path="/" view-name="map_test.html" />
+    <mvc:resources mapping="/scripts/**" location="/resources/scripts/" />
+    <mvc:resources mapping="/styles/**" location="/resources/styles/" />
+    <mvc:resources mapping="/data/**" location="/resources/data/" />
     <mvc:annotation-driven/>
     
 </beans>
