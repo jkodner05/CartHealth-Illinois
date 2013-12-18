@@ -20,7 +20,6 @@
     <bean name="/bounce/test.json"
       class="main.java.com.carthealth.view.Bounce" />
     
-    <mvc:resource path="/" location="/map_test.html" />
     <mvc:annotation-driven/>
     
 </beans>
