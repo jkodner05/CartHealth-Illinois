@@ -7,6 +7,6 @@
     <display-name>Spring Flattener</display-name>
  
     <welcome-file-list>
-        <welcome-file>map_test.html</welcome-file>
+        <welcome-file>/map_test.html</welcome-file>
     </welcome-file-list>
 </web-app>
