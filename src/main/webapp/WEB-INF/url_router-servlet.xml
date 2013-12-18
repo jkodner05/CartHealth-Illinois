@@ -14,10 +14,10 @@
      
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="prefix" value="/WEB-INF/" />
-    <property name="suffix" value=".html" />
+    <property name="suffix" value=".json" />
     </bean>
     
-    <bean name="/bounce.html"
+    <bean name="/bounce/test.json"
       class="main.java.com.carthealth.view.Bounce" />
     
     <mvc:resource path="/" location="/map_test.html" />
