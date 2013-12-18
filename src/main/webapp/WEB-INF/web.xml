@@ -20,6 +20,6 @@
  
   <servlet-mapping>
       <servlet-name>url_router</servlet-name>
-      <url-pattern>/bounce/*</url-pattern>
+      <url-pattern>*</url-pattern>
   </servlet-mapping>
 </web-app>
