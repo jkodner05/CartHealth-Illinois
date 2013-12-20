@@ -16,7 +16,7 @@
     <property name="prefix" value="/WEB-INF/" />
     </bean>
     
-    <bean name="/bounce/test"
+    <bean name="/bounce.html"
       class="main.java.com.carthealth.view.Bounce" />
     
     <mvc:annotation-driven/>
