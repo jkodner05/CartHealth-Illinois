@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -123,9 +124,10 @@ public class Bounce {
   public ModelAndView homePage() {           
       return new ModelAndView("redirect:/map_test.html");
   }
-  
+
+  @Autowired
   @RequestMapping(value="/bounce.html", method=RequestMethod.GET, consumes="application/json")
-  public String getStats(@RequestParam String token) {
+  public @ResponseBody String getStats(@RequestParam String token) {
     String bounce = "{\"msg\":\"Hi there JS!\",";
     bounce = bounce + "\"" + token + "\": null,";
     bounce = bounce + "\"end\":null}";
