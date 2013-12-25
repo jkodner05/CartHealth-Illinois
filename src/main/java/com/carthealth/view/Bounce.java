@@ -119,15 +119,11 @@ public class Bounce {
     "Woodford"};
   
   @RequestMapping(value="/bounce/test.req", method=RequestMethod.GET, consumes="application/json")
+  @ResponseBody
   public String getStats(@RequestParam String token) {
     String bounce = "{\"msg\":\"Hi there JS!\",";
     bounce = bounce + "\"" + token + "\": null,";
     bounce = bounce + "\"end\":null}";
     return bounce;
-  }
-  
-  @RequestMapping("*")
-  public String hello(HttpServletRequest request) {
-      return request.getServletPath();
   }
 }  
