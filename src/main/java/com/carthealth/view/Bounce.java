@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class Bounce {
@@ -118,12 +120,27 @@ public class Bounce {
     "Winnebago",
     "Woodford"};
   
+<<<<<<< HEAD
   @RequestMapping(value="/bounce/test.req", method=RequestMethod.GET, consumes="application/json")
   @ResponseBody
   public String getStats(@RequestParam String token) {
+=======
+  @RequestMapping(value="/")
+  public ModelAndView homePage() {           
+      return new ModelAndView("redirect:/map_test.html");
+  }
+
+  @Autowired
+  @RequestMapping(value="/bounce.html", method=RequestMethod.GET, consumes="application/json")
+  public @ResponseBody String getStats(@RequestParam String token) {
+>>>>>>> 60d7fd4999899acadfcff77771a0047b2c78d995
     String bounce = "{\"msg\":\"Hi there JS!\",";
     bounce = bounce + "\"" + token + "\": null,";
     bounce = bounce + "\"end\":null}";
     return bounce;
   }
+<<<<<<< HEAD
 }  
+=======
+}  
+>>>>>>> 60d7fd4999899acadfcff77771a0047b2c78d995
