@@ -10,17 +10,7 @@
  http://www.springframework.org/schema/context
  http://www.springframework.org/schema/context/spring-context-3.0.xsd">
  
-    <context:component-scan base-package="com.tutorialspoint" />
-<<<<<<< HEAD
-=======
-     
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-    </bean>
-    
-    <bean name="/bounce.html"
-      class="main.java.com.carthealth.view.Bounce" />
->>>>>>> 60d7fd4999899acadfcff77771a0047b2c78d995
-    
+    <context:component-scan base-package="com.tutorialspoint" />    
     <mvc:annotation-driven/>
     
 </beans>
