@@ -5,11 +5,12 @@
            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
                
     <bean class="org.springframework.web.servlet.handler.MethodUrlHandlerMapping">
-    <property name="mappings">
-      <props>
-        <prop key="GET /bounce/*">bounceController</prop>
-      </props>
-    </property>
+	    <property name="mappings">
+	      <props>
+	        <prop key="GET /bounce/*">bounceController</prop>
+	      </props>
+	    </property>
+    </bean>
     
     <bean name="Bounce" class="main.java.com.carthealth.view.Bounce">
     </bean>
