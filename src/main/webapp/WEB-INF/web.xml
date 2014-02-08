@@ -8,23 +8,6 @@
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
-<<<<<<< HEAD
-    
-    <servlet>
-      <servlet-name>url_router</servlet-name>
-      <servlet-class>
-            org.springframework.web.servlet.DispatcherServlet
-      </servlet-class>
-      <load-on-startup>1</load-on-startup>
-    </servlet>
-
-    <servlet-mapping>
-      <servlet-name>url_router</servlet-name>
-      <url-pattern>/bounce/*</url-pattern>
-    </servlet-mapping>
-  
-</web-app>
-=======
 
   <servlet>
       <servlet-name>jersey-services</servlet-name>
@@ -45,4 +28,3 @@
   </servlet-mapping>
 
 </web-app>
->>>>>>> b76344719b0e41a8802628000d3dbef069f8b170
