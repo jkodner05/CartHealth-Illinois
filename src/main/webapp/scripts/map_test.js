@@ -9,11 +9,11 @@ $(function() {
     disableDoubleClickZoom: true,    
     mapTypeId: gm.MapTypeId.ROADMAP
   };
-  var map = new gm.Map(document.getElementById("mapCanvas"), mapOptions);
+  var map = new gm.Map(document.getElementById('mapCanvas'), mapOptions);
   var geoJSON = $.ajax({
-    type: "GET",
-    url: "/data/counties.json",
-    dataType: "json",
+    type: 'GET',
+    url: '/data/counties.json',
+    dataType: 'json',
     success: function() {},
     data: {},
     async: false
@@ -30,37 +30,37 @@ $(function() {
     borders[countyName] = countyBorder;
     counties[countyName] = new gm.Polygon({
       paths: countyBorder,
-      strokeColor: "#FFFFFF",
+      strokeColor: '#FFFFFF',
       strokeOpacity: 0.8,
       strokeWeight: 2,
-      fillColor: "#FF0000",
+      fillColor: '#FF0000',
       fillOpacity: 0.34
     });
     counties[countyName].setMap(map);
   });
   geoData = null;
   $("#changeColor").click(function() {
+    var countyName = $("#countyName").val();
     var bounce = $.ajax({
       type: "GET",
-      url: "/bounce/talk",
+      url: "/services/bounce",
       beforeSend: function(xhr) {
         xhr.setRequestHeader("Accept", "application/json");
         xhr.setRequestHeader("Content-Type", "application/json");
-      	},
+        },
       dataType: "json",
       success: function() {},
-      data: "foo",
+      data: "stat="+countyName,
       async: false
     });
     alert(bounce);
     alert(JSON.stringify(bounce));
-    var countyName = $("#countyName").val();
     counties[countyName].setOptions({
       paths: borders[countyName],
-      strokeColor: "#FFFFFF",
+      strokeColor: '#FFFFFF',
       strokeOpacity: 0.8,
       strokeWeight: 2,
-      fillColor: "#0000FF",
+      fillColor: '#0000FF',
       fillOpacity: 0.34
     });
     return false;
