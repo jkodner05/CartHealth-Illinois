@@ -1,5 +1,14 @@
-# Spring MVC and Hibernate template application 
+# JAX-RS Template Application
 
-Jordan Kodner
-Anand Sundaram
-Daniel Zhou
+This is a template for a lightweight RESTful API using JAX-RS. The sample code is a call for getting the current time.
+    
+## Running the application locally
+
+First build with:
+
+    $mvn clean install
+
+Then run it with:
+
+    $ java -cp target/classes:target/dependency/* com.example.Main
+

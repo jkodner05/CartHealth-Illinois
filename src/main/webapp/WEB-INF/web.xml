@@ -3,12 +3,12 @@
     xmlns="http://java.sun.com/xml/ns/javaee"
     xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-    id="WebApp_ID" version="2.5">
-    <display-name>Spring Flattener</display-name>
- 
+    version="2.5">
+
     <welcome-file-list>
-	    <welcome-file>/map_test.html</welcome-file>
+        <welcome-file>index.html</welcome-file>
     </welcome-file-list>
+<<<<<<< HEAD
     
     <servlet>
       <servlet-name>url_router</servlet-name>
@@ -24,3 +24,25 @@
     </servlet-mapping>
   
 </web-app>
+=======
+
+  <servlet>
+      <servlet-name>jersey-services</servlet-name>
+      <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+      <init-param>
+          <param-name>com.sun.jersey.config.property.packages</param-name>
+          <param-value>com.example.services</param-value>
+      </init-param>
+      <init-param>
+          <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+          <param-value>true</param-value>
+      </init-param>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>jersey-services</servlet-name>
+    <url-pattern>/services/*</url-pattern>
+  </servlet-mapping>
+
+</web-app>
+>>>>>>> b76344719b0e41a8802628000d3dbef069f8b170

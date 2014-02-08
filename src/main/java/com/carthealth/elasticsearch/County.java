@@ -1,4 +1,4 @@
-package main.java.com.carthealth.model;
+package com.carthealth.elasticsearch;
 
 public class County 
 {

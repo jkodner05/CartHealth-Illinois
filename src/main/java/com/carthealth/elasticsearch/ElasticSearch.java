@@ -1,4 +1,4 @@
-package main.java.com.carthealth.model;
+package com.carthealth.elasticsearch;
 
 import io.searchbox.client.JestClient;
 import io.searchbox.client.JestClientFactory;

@@ -1,13 +1,7 @@
-/target
-/.classpath
-/.project
-/.settings
-/tomcat.*
-/.idea
-/*.iml
-*.class
-
-# Package Files #
-*.jar
-*.war
-*.ear
+target
+build
+.gradle
+.classpath
+.project
+.settings
+.env
