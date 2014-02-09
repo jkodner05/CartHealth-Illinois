@@ -7,14 +7,19 @@
     <script src="/scripts/map_test.js"></script>
   </head>
   <body>
-    <div id="mapCanvas"></div>
-    <div id="control">
-      <form id="countyForm" action="">
-        <select name="stat_vars" id="stat_vars">
-        </select>
-        <input type="text" name="countyName" id="countyName"><br>
-        <input type="button" id="changeColor" value="Blue">
-      </form>
-    </div>
+    <table><tr>
+    <td id="mapColumn">
+      <div id="mapCanvas"></div>
+    </td>
+    <td id="controlColumn">
+      <div id="control">
+        <form id="countyForm" action="">
+          <select name="stat_vars" id="stat_vars">
+          </select>
+          <input type="button" id="loadMap" value="Load Map">
+        </form>
+      </div>
+    </td>
+    </tr></table>
   </body>
 </html>

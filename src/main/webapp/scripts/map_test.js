@@ -60,8 +60,9 @@ $(function() {
   });
   
   /* Submit user input */
-  $("#changeColor").click(function() {
-    var countyName = $("#countyName").val();
+  $("#loadMap").click(function() {
+    var stats = new Array();
+    stats[0] = $("#stat_vars").val();
     var bounce = $.ajax({
       type: "GET",
       url: "/services/bounce",
@@ -70,12 +71,11 @@ $(function() {
         xhr.setRequestHeader("Content-Type", "application/json");
         },
       dataType: "json",
-      success: function() {},
-      data: "stat="+countyName,
+      success: function(data, status, xhr) { alert(data);},
+      data: "stats="+stats,
       async: false
     });
-    alert(bounce);
-    alert(JSON.stringify(bounce));
+    /*
     counties[countyName].setOptions({
       paths: borders[countyName],
       strokeColor: '#FFFFFF',
@@ -84,6 +84,7 @@ $(function() {
       fillColor: '#0000FF',
       fillOpacity: 0.34
     });
+    */
     return false;
   });
 });

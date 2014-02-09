@@ -1,15 +1,25 @@
-#mapCanvas
+#mapColumn
 {
 float:left;
 padding: 1em;
+width: 50%
+}
+
+#controlColumn
+{
+float:right;
+padding: 1em;
+width: 50%
+}
+
+#mapCanvas
+{
 width: 25em;
 height: 20em
 }
 
 #control
 {
-float:right;
-padding: 1em;
 width: 25em;
 height: 20em
 }
