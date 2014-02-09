@@ -62,7 +62,7 @@ $(function() {
   /* Submit user input */
   function drawHeatMap(colorData, stat) {
     var countyData = colorData[stat];
-    alert(JSON.stringify(ountyData));
+    alert(JSON.stringify(countyData));
     $.each(countyData, function(countyName, data) {
       alert(data);
       var tryparse = $.parseJSON(data);
