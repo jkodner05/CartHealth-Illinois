@@ -7,10 +7,8 @@ body
 
 #mapCanvas
 {
-  text-align: center;
-  display: inline;
-  width: 50 em;
-  height: 40 em;
+width:500px;
+height:400px;
 }
 
 #control
