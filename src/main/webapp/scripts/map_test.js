@@ -65,8 +65,8 @@ $(function() {
     $.each(countyData, function(countyName, text) {
       var data = $.parseJSON(text);
       color = "hsl(" + data["color"] + ")";
-      if (counties[countyName] === null) {
-        alert("Null county: " + countyName + "!");
+      if (!counties[countyName]) {
+        alert("Missing county: " + countyName + "!");
       }
       counties[countyName].setOptions({
         paths: borders[countyName],
