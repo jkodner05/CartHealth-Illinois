@@ -94,7 +94,7 @@ public class ElasticSearch {
 		for(County county : counties)
 		{
 			String hsl = getHSL(min,max,county.value);
-			data.add(county.county + ": {color:\""+hsl+"\", value:\""+county.value+"\"}");
+			data.add("{\"" + county.county + "\": {color:\""+hsl+"\", value:\""+county.value+"\"}}");
 		}
 		return data;
 	}

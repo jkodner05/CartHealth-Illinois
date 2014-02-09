@@ -62,7 +62,17 @@ $(function() {
   /* Submit user input */
   /*
   function drawHeatMap(colorData, stat) {
-    $.each(colorData[stat], function(
+    var countyData = $.parseJSON(colorData[stat]);
+    $.each(countyData, function(countyName, data) {
+      counties[countyName].setOptions({
+        paths: borders[countyName],
+        strokeColor: '#FFFFFF',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: data["color"],
+        fillOpacity: 0.34
+      });
+    });
   }*/
   $("#loadMap").click(function() {
     var stat = $("#stat_vars").val();
@@ -76,7 +86,7 @@ $(function() {
         xhr.setRequestHeader("Content-Type", "application/json");
         },
       dataType: "json",
-      success: function(data, status, xhr) { alert(data); alert(JSON.stringify(data)); },
+      success: function(data, status, xhr) { alert(JSON.stringify(data)); drawHeatMap(data,stat); },
       data: "stats="+stats,
       async: false
     });
