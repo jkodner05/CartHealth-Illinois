@@ -18,11 +18,9 @@ $(function() {
   
   function drawBorders(geoData) {
     $.each(geoData, function(countyName, coordList) {
-      var countyBorder = coordList.map(
-        function(coordPair) {
+      var countyBorder = coordList.map(function(coordPair) {
           return new gm.LatLng(coordPair["Lat"],coordPair["Long"]);
-        }
-      );
+      });
       borders[countyName] = countyBorder;
       counties[countyName] = new gm.Polygon({
         paths: countyBorder,
@@ -33,7 +31,8 @@ $(function() {
         fillOpacity: 0.34
       });
       counties[countyName].setMap(map);
-    });
+   });
+  }
   
   var geoJSON = $.ajax({
     type: 'GET',
