@@ -64,18 +64,13 @@ $(function() {
     var countyData = colorData[stat];
     $.each(countyData, function(countyName, text) {
       var data = $.parseJSON(text);
-      alert(text);
-      alert(JSON.stringify(text));
-      alert(data);
-      alert(JSON.stringify(data));
-      alert(data["color"]);
-      alert(JSON.stringify(data["color"]));
+      color = JSON.stringify(data["color"]);
       counties[countyName].setOptions({
         paths: borders[countyName],
         strokeColor: '#FFFFFF',
         strokeOpacity: 0.8,
         strokeWeight: 2,
-        fillColor: data["color"],
+        fillColor: color,
         fillOpacity: 0.34
       });
     });
