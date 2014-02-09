@@ -76,7 +76,7 @@ $(function() {
         xhr.setRequestHeader("Content-Type", "application/json");
         },
       dataType: "json",
-      success: function(data, status, xhr) { alert(data);},
+      success: function(data, status, xhr) { alert($.parseJSON(data));},
       data: "stats="+stats,
       async: false
     });
