@@ -64,6 +64,12 @@ $(function() {
     var countyData = colorData[stat];
     $.each(countyData, function(countyName, text) {
       var data = $.parseJSON(text);
+      alert(text);
+      alert(JSON.stringify(text));
+      alert(data);
+      alert(JSON.stringify(data));
+      alert(data["color"]);
+      alert(JSON.stringify(data["color"]));
       counties[countyName].setOptions({
         paths: borders[countyName],
         strokeColor: '#FFFFFF',
