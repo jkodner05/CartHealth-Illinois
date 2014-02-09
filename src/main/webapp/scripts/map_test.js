@@ -62,8 +62,10 @@ $(function() {
   /* Submit user input */
   function drawHeatMap(colorData, stat) {
     var countyData = colorData[stat];
+    alert(countyData);
     $.each(countyData, function(countyName, data) {
       alert(data);
+      alert($.parseJSON(data)[color]);
       alert(data["color"]);
       counties[countyName].setOptions({
         paths: borders[countyName],
