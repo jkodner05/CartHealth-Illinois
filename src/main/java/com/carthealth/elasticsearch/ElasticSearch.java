@@ -91,8 +91,7 @@ public class ElasticSearch {
 				max = county.value;
 		}
 		
-		String jsonString = "{name:\"" + statName + "\",type:\"" + statType + "\","
-				+ "[";
+		String jsonString = "{\"" + statName + "\": [";
 		
 		StringBuilder jsons = new StringBuilder(jsonString);
 		

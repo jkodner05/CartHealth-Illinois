@@ -7,19 +7,15 @@
     <script src="/scripts/map_test.js"></script>
   </head>
   <body>
-    <table><tr>
-    <td id="mapColumn">
-      <div id="mapCanvas"></div>
+    <div id="control">
+      <h1>Choose a statistic to generate a heatmap:</h1>
+      <form id="countyForm" action="">
+        <select name="stat_vars" id="stat_vars">
+        </select>
+        <input type="button" id="loadMap" value="Load Map">
+      </form>
+    </div>
+    <div id="mapCanvas"></div>
     </td>
-    <td id="controlColumn">
-      <div id="control">
-        <form id="countyForm" action="">
-          <select name="stat_vars" id="stat_vars">
-          </select>
-          <input type="button" id="loadMap" value="Load Map">
-        </form>
-      </div>
-    </td>
-    </tr></table>
   </body>
 </html>
