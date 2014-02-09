@@ -62,6 +62,9 @@ $(function() {
   /* Submit user input */
   /*
   function drawHeatMap(colorData, stat) {
+    alert(JSON.stringify(colorData));
+    alert(stat)
+    alert(JSON.stringify(colorData[stat]));
     var countyData = $.parseJSON(colorData[stat]);
     alert(countyData);
     $.each(countyData, function(countyName, data) {
@@ -87,7 +90,7 @@ $(function() {
         xhr.setRequestHeader("Content-Type", "application/json");
         },
       dataType: "json",
-      success: function(data, status, xhr) { alert(JSON.stringify(data)); drawHeatMap(data,stat); },
+      success: function(data, status, xhr) { drawHeatMap(data,stat); },
       data: "stats="+stats,
       async: false
     });
