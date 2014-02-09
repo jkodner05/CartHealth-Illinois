@@ -60,9 +60,9 @@ public class ElasticSearch {
 		return counties;
 	}
 	
-	public Map<String,List<String>> getStatsByCounty(List<String> statNames)
+	public Map<String,Map<String,String>> getStatsByCounty(List<String> statNames)
 	{
-		Map<String,List<String>> output = new HashMap<String,List<String>>();
+		Map<String,Map<String,String>> output = new HashMap<String,Map<String,String>>();
 		for(String statName : statNames)
 			output.put(statName,getStatsByCounty(statName));
 		return output;
@@ -76,7 +76,7 @@ public class ElasticSearch {
 		return h + "," + SATURATION + "," + LIGHTNESS;
 	}
 	
-	public List<String> getColorsAndValues(List<County> counties)
+	public Map<String,String> getColorsAndValues(List<County> counties)
 	{
 		float min = Float.MAX_VALUE;
 		float max = Float.MIN_VALUE;
@@ -89,19 +89,19 @@ public class ElasticSearch {
 				max = county.value;
 		}
 		
-		List<String> data = new ArrayList<String>();
+		Map<String,String> data = new HashMap<String,String>();
 		
 		for(County county : counties)
 		{
 			String hsl = getHSL(min,max,county.value);
-			data.add("{\"" + county.county + "\": {\"color\":\""+hsl+"\", \"value\":\""+county.value+"\"}}");
+			data.put(county.county,"{\"color\":\""+hsl+"\", \"value\":\""+county.value+"\"}");
 		}
 		return data;
 	}
 	
-	public List<String> getStatsByCounty(String statName)
+	public Map<String,String> getStatsByCounty(String statName)
 	{
-		List<String> output = new ArrayList<String>();
+		Map<String,String> output = new HashMap<String,String>();
 		SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
 		searchSourceBuilder.query(QueryBuilders.queryString("name:" + statName));
 		Search search = new Search.Builder(searchSourceBuilder.toString())

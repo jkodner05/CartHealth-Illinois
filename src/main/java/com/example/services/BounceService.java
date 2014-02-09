@@ -16,7 +16,7 @@ import com.carthealth.elasticsearch.ElasticSearch;
 public class BounceService {
 
    @GET
-    public Map<String,List<String>> get(@QueryParam("stats") List<String> stats) {
+    public Map<String,Map<String,String>> get(@QueryParam("stats") List<String> stats) {
 	   ElasticSearch search = new ElasticSearch();
 	   return search.getStatsByCounty(stats);
     }
