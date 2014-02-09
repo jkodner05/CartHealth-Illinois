@@ -35,14 +35,16 @@ $(function() {
       counties[countyName].setMap(map);
     });
   
-  $.ajax({
+  var geoJSON = $.ajax({
     type: 'GET',
     url: '/data/counties.json',
     dataType: 'json',
-    success: function(data, status, xhr) { drawBorders(data) },
+    success: function(geoData, status, xhr) { drawBorders(geoData); },
     data: {},
     async: false
   });
+  
+  alert(geoJSON);
   
   /* Load list of statistic choices */
   var statVars = $.ajax({
