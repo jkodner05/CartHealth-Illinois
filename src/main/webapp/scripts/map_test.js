@@ -34,7 +34,7 @@ $(function() {
    });
   }
   
-  var geoJSON = $.ajax({
+  $.ajax({
     type: 'GET',
     url: '/data/counties.json',
     dataType: 'json',
@@ -43,22 +43,20 @@ $(function() {
     async: false
   });
   
-  alert(geoJSON);
+  function listStats(optionData) {
+    $.each(optionData, function(stat_name, stat_abbr) {
+      $("#stat_vars").append("<option value=" + stat_abbr + ">" + stat_name + "</option>");
+    });
+  }
   
   /* Load list of statistic choices */
   var statVars = $.ajax({
     type: 'GET',
     url: '/data/stat_vars.json',
     dataType: 'json',
-    success: function() {},
+    success: function(optionData, status, xhr) { listStats(optionData); },
     data: {},
     async: false
-  });
-  alert(statVars);
-  var optionData = $.parseJSON(statVars["responseText"]);
-  alert(optionData);
-  $.each(optionData, function(stat_name, stat_abbr) {
-    $("#stat_vars").append("<option value=" + stat_abbr + ">" + stat_name + "</option>")
   });
   
   /* Submit user input */
