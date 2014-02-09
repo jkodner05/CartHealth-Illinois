@@ -62,13 +62,12 @@ $(function() {
   /* Submit user input */
   function drawHeatMap(colorData, stat) {
     var countyData = colorData[stat];
-    alert(JSON.stringify(countyData));
-    var names = {};
-    $.each(counties, function(countyName, blah) { names[countyName] = 0; });
-    alert(JSON.stringify(names));
     $.each(countyData, function(countyName, text) {
       var data = $.parseJSON(text);
       color = "hsl(" + data["color"] + ")";
+      if (counties[countyName] === null) {
+        alert("Null county: " + countyName + "!");
+      }
       counties[countyName].setOptions({
         paths: borders[countyName],
         strokeColor: '#FFFFFF',
