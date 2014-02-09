@@ -60,9 +60,9 @@ $(function() {
   });
   
   /* Submit user input */
-  /*
   function drawHeatMap(colorData, stat) {
     alert(JSON.stringify(colorData));
+    /*
     alert(stat)
     alert(JSON.stringify(colorData[stat]));
     var countyData = $.parseJSON(colorData[stat]);
@@ -76,8 +76,8 @@ $(function() {
         fillColor: data["color"],
         fillOpacity: 0.34
       });
-    });
-  }*/
+    });*/
+  }
   $("#loadMap").click(function() {
     var stat = $("#stat_vars").val();
     var stats = new Array();
