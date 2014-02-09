@@ -65,17 +65,16 @@ $(function() {
     $.each(countyData, function(countyName, text) {
       var data = $.parseJSON(text);
       color = "hsl(" + data["color"] + ")";
-      if (!counties[countyName]) {
-        alert("Missing county: " + countyName + "!");
-      }
-      counties[countyName].setOptions({
-        paths: borders[countyName],
-        strokeColor: '#FFFFFF',
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: color,
-        fillOpacity: 0.34
-      });
+      if (counties[countyName]) {
+        counties[countyName].setOptions({
+          paths: borders[countyName],
+          strokeColor: '#FFFFFF',
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: color,
+          fillOpacity: 0.34
+        });
+     }
     });
   }
   $("#loadMap").click(function() {
