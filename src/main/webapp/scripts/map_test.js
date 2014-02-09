@@ -1,4 +1,5 @@
 $(function() {
+  /* Load Google Map */
   var gm = google.maps;
   var mapOptions = {
     center: new gm.LatLng(40.0000, -89.6500),
@@ -10,6 +11,8 @@ $(function() {
     mapTypeId: gm.MapTypeId.ROADMAP
   };
   var map = new gm.Map(document.getElementById('mapCanvas'), mapOptions);
+  
+  /* Draw Illinois counties */
   var geoJSON = $.ajax({
     type: 'GET',
     url: '/data/counties.json',
@@ -39,6 +42,24 @@ $(function() {
     counties[countyName].setMap(map);
   });
   geoData = null;
+  
+  /* Load list of statistic choices */
+  var statVars = $.ajax({
+    type: 'GET',
+    url: '/data/stat_vars.json',
+    dataType: 'json',
+    success: function() {},
+    data: {},
+    async: false
+  });
+  alert(statVars);
+  var optionData = $.parseJSON(statVars["responseText"]);
+  alert(optionData);
+  $.each(optionData, function(stat_name, stat_abbr) {
+    $("#stat_vars").append("<option value=" + stat_abbr + ">" + stat_name + "</option>")
+  });
+  
+  /* Submit user input */
   $("#changeColor").click(function() {
     var countyName = $("#countyName").val();
     var bounce = $.ajax({
