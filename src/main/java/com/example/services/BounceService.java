@@ -1,6 +1,7 @@
 package com.example.services;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -15,7 +16,7 @@ import com.carthealth.elasticsearch.ElasticSearch;
 public class BounceService {
 
    @GET
-    public List<String> get(@QueryParam("stats") List<String> stats) {
+    public Map<String,List<String>> get(@QueryParam("stats") List<String> stats) {
 	   ElasticSearch search = new ElasticSearch();
 	   return search.getStatsByCounty(stats);
     }

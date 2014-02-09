@@ -7,7 +7,9 @@ import io.searchbox.client.config.ClientConfig;
 import io.searchbox.core.Search;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
@@ -25,8 +27,6 @@ public class ElasticSearch {
 	private String INDEX;
 	private String TYPE;
 	private JestClient client;
-	private String statType;
-	private String statName;
 	
 	
 	public static ElasticSearch getInstance()
@@ -55,19 +55,17 @@ public class ElasticSearch {
 		
 		for(Stat stat : stats)
 		{
-			statType = stat.type;
-			statName = stat.name;
 			counties.addAll(stat.counties);
 		}
 		return counties;
 	}
 	
-	public List<String> getStatsByCounty(List<String> statNames)
+	public Map<String,List<String>> getStatsByCounty(List<String> statNames)
 	{
-		List<String> jsons = new ArrayList<String>();
+		Map<String,List<String>> output = new HashMap<String,List<String>>();
 		for(String statName : statNames)
-			jsons.add(getStatsByCounty(statName));
-		return jsons;
+			output.put(statName,getStatsByCounty(statName));
+		return output;
 	}
 	
 	public String getHSL(float min, float max, float val)
@@ -78,7 +76,7 @@ public class ElasticSearch {
 		return h + "," + SATURATION + "," + LIGHTNESS;
 	}
 	
-	public String getJsons(List<County> counties)
+	public List<String> getColorsAndValues(List<County> counties)
 	{
 		float min = Float.MAX_VALUE;
 		float max = Float.MIN_VALUE;
@@ -91,22 +89,19 @@ public class ElasticSearch {
 				max = county.value;
 		}
 		
-		String jsonString = "{\"" + statName + "\": [";
-		
-		StringBuilder jsons = new StringBuilder(jsonString);
+		List<String> data = new ArrayList<String>();
 		
 		for(County county : counties)
 		{
 			String hsl = getHSL(min,max,county.value);
-			jsons.append("{county:\""+county.county+"\",color:\""+hsl+"\",value:\""+county.value+"\"}");
+			data.add(county.county + ": {color:\""+hsl+"\", value:\""+county.value+"\"}");
 		}
-		jsons.append("]}");
-		return jsons.toString();
+		return data;
 	}
 	
-	public String getStatsByCounty(String statName)
+	public List<String> getStatsByCounty(String statName)
 	{
-		String jsons = "";
+		List<String> output = new ArrayList<String>();
 		SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
 		searchSourceBuilder.query(QueryBuilders.queryString("name:" + statName));
 		Search search = new Search.Builder(searchSourceBuilder.toString())
@@ -118,14 +113,13 @@ public class ElasticSearch {
 		try {
 			JestResult result = client.execute(search);
 			List<County> counties = getCountiesFromResult(result);
-			jsons = getJsons(counties);
+			output = getColorsAndValues(counties);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		System.out.println(jsons);
-		return jsons;
+		return output;
 	}
 	
 	//For testing

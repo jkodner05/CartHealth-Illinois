@@ -3,13 +3,14 @@ body
   text-align: center;
   margin: 2 em;
   width: 50 em;
-  height: 40 em;
 }
 
 #mapCanvas
 {
   text-align: center;
   display: inline;
+  width: 50 em;
+  height: 40 em;
 }
 
 #control

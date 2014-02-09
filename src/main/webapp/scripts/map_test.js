@@ -60,9 +60,14 @@ $(function() {
   });
   
   /* Submit user input */
+  /*
+  function drawHeatMap(colorData, stat) {
+    $.each(colorData[stat], function(
+  }*/
   $("#loadMap").click(function() {
+    var stat = $("#stat_vars").val();
     var stats = new Array();
-    stats[0] = $("#stat_vars").val();
+    stats[0] = stat;
     var bounce = $.ajax({
       type: "GET",
       url: "/services/bounce",
