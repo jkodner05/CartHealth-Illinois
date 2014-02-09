@@ -63,7 +63,9 @@ $(function() {
   function drawHeatMap(colorData, stat) {
     var countyData = colorData[stat];
     alert(JSON.stringify(countyData));
-    alert(counties);
+    var names = {};
+    $.each(counties, function(countyName, blah) { names[countyName] = 0; });
+    alert(JSON.stringify(names));
     $.each(countyData, function(countyName, text) {
       var data = $.parseJSON(text);
       color = "hsl(" + data["color"] + ")";
@@ -93,16 +95,6 @@ $(function() {
       data: "stats="+stats,
       async: false
     });
-    /*
-    counties[countyName].setOptions({
-      paths: borders[countyName],
-      strokeColor: '#FFFFFF',
-      strokeOpacity: 0.8,
-      strokeWeight: 2,
-      fillColor: '#0000FF',
-      fillOpacity: 0.34
-    });
-    */
     return false;
   });
 });
