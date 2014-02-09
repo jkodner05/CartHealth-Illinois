@@ -63,6 +63,7 @@ $(function() {
   /*
   function drawHeatMap(colorData, stat) {
     var countyData = $.parseJSON(colorData[stat]);
+    alert(countyData);
     $.each(countyData, function(countyName, data) {
       counties[countyName].setOptions({
         paths: borders[countyName],
