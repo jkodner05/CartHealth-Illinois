@@ -11,10 +11,96 @@ width:500px;
 height:400px;
 margin-left: auto;
 margin-right: auto;
+margin-top: 2em;
+
 }
 
 #control
 {
   text-align: center;
   display: inline;
+  	position: relative;
+	float: right;
+	margin-top: 5em;
+	width: 100%;
+	height: 8em;;
+}
+
+#logo {
+    float: left;
+    margin-top: 1em;
+    margin-left: 1em;
+    height: 3em;
+}
+
+#header {
+	z-index: 1;
+	position: absolute;
+	width: 100%;
+	margin: 0em -1em 0em -.5em;
+	height: 5em;
+	background-color: #003366;
+}
+
+#name {
+	float:left;
+	margin-left: .5em;
+	margin-top: .6em;
+	font-size: 2em;
+	font-weight: bold;
+	font-family: Century Gothic, sans-serif;
+	color: #ffffff;
+}
+
+#contact{
+	float:right;
+	margin-right: 2em;
+	margin-top: 2em;
+	font-size: 1em;
+	font-weight: bold;
+	font-family: Century Gothic, sans-serif;
+	color: #ffffff;
+}
+
+#sources{
+	float:right;
+	margin-right: 3em;
+	margin-top: 2em;
+	font-size: 1em;
+	font-weight: bold;
+	font-family: Century Gothic, sans-serif;
+	color: #ffffff;
+}
+
+#compare{
+	float:right;
+	margin-right: 3em;
+	margin-top: 2em;
+	font-size: 1em;
+	font-weight: bold;
+	font-family: Century Gothic, sans-serif;
+	color: #ffffff;
+}
+
+#home{
+	float:right;
+	margin-right: 3em;
+	margin-top: 2em;
+	font-size: 1em;
+	font-weight: bold;
+	font-family: Century Gothic, sans-serif;
+	color: #ffffff;
+}
+
+
+
+#footer {
+	position: relative;
+	height: 50px;
+	background-color: #668284;
+	clear: both;
+	font-family: Verdana, sans-serif;
+	font-size: .9em;
+	text-align: center;
+	color: #ffffff;
 }
