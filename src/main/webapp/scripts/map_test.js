@@ -54,6 +54,7 @@ $(function() {
           $("#choose_stats div").children().attr("class","btn btn-default");
           $(this).attr("class","btn btn-success");
           $("#stat_vars").val(stat_name);
+          return false;
         });
       });
       $("#"+category_name+"-STATS").slideUp();
@@ -62,6 +63,7 @@ $(function() {
         $(this).attr("class","btn btn-info");
         $("#choose_stats div").slideUp();
         $("#"+category_name+"-STATS").slideDown();
+        return false;
       });
     });
   }
