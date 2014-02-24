@@ -77,7 +77,7 @@ $(function() {
   /* Load list of statistic choices */
   $.ajax({
     type: 'GET',
-    url: '/data/stat_vars_new.json',
+    url: '/data/stat_vars.json',
     dataType: 'json',
     success: function(option_data, status, xhr) { create_menu(option_data); },
     data: {},
