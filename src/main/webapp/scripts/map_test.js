@@ -47,7 +47,7 @@ $(function() {
   /* Create a menu for the user to choose statistics from */
   function create_menu(option_data) {
     $.each(option_data, function(category_name, category_statistics) {
-      $("#choose_stats").append("<button class=\"btn btn-default\" id=" + category_name + ">" + category_name + "</button>");
+      $("#choose_category").append("<button class=\"btn btn-default\" id=" + category_name + ">" + category_name + "</button>");
       $("#choose_stats").append("<div class=\"well\" id=" + category_name + "-STATS>");
       $.each(category_statistics, function(stat_name, stat_abbr) {
         $("#"+category_name+"-STATS").append("<button class=\"btn btn-default\" id=" + stat_abbr + ">" + stat_name + "</button>");
@@ -65,7 +65,7 @@ $(function() {
       $("#"+category_name+"-STATS").slideUp();
       $("#"+category_name).click(function() {
         $("#map_canvas").slideUp();
-        $("#choose_stats button").attr("class", "btn btn-default");
+        $("#choose_category button").attr("class", "btn btn-default");
         $(this).attr("class","btn btn-info");
         $("#choose_stats div").slideUp();
         $("#"+category_name+"-STATS").slideDown();
