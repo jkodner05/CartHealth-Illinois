@@ -49,7 +49,7 @@ $(function() {
       $("#choose_stats").append("<button class=\"btn btn-default\" id=" + category_name + ">" + category_name + "</button>");
       $("#choose_stats").append("<div id=" + stat_abbr + "-STATS>");
       $.each(category_statistics, function(stat_name, stat_abbr) {
-        $("#"+category_name+"-STATS").append("<button class=\"btn btn-default\" id=" + stat_abbr + ">" + stat_name + "</button">);
+        $("#"+category_name+"-STATS").append("<button class=\"btn btn-default\" id=" + stat_abbr + ">" + stat_name + "</button>");
         $("#"+stat_abbr).click(function() {
           $("#choose_stats div").children().attr("class","btn btn-default");
           $(this).attr("class","btn btn-success");
