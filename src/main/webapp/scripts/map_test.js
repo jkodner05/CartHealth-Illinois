@@ -53,7 +53,7 @@ $(function() {
         $("#"+stat_abbr).click(function() {
           $("#choose_stats div").children().attr("class","btn btn-default");
           $(this).attr("class","btn btn-success");
-          $("#stat_vars").val(stat_name);
+          $("#stat_vars").val(stat_abbr);
           return false;
         });
       });
