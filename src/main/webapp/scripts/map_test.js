@@ -45,11 +45,9 @@ $(function() {
   });
   
   function listStats(optionData) {
-    alert(optionData);
-    alert(JSON.stringify(optionData));
     $.each(optionData, function(category_name, category_statistics) {
       $("#choose_stats").append("<button class=\"btn btn-default\" id=" + category_name + ">" + category_name + "</button>");
-      $("#choose_stats").append("<div id=" + stat_abbr + "-STATS>");
+      $("#choose_stats").append("<div id=" + category_name + "-STATS>");
       $.each(category_statistics, function(stat_name, stat_abbr) {
         $("#"+category_name+"-STATS").append("<button class=\"btn btn-default\" id=" + stat_abbr + ">" + stat_name + "</button>");
         $("#"+stat_abbr).click(function() {
