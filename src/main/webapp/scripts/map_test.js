@@ -84,8 +84,9 @@ $(function() {
     async: false
   });
   
-  /* Redraw map based on statistic values */
-  function draw_heat_map(color_data, stat) {
+  /* Redraw map based on values of the first statistic chosen*/
+  function draw_heat_map(color_data, stats) {
+    stat=stats[0];
     var county_data = color_data[stat];
     $.each(county_data, function(county_name, text) {
       var data = $.parseJSON(text);
@@ -116,7 +117,7 @@ $(function() {
         xhr.setRequestHeader("Content-Type", "application/json");
         },
       dataType: "json",
-      success: function(data, status, xhr) { draw_heat_map(data,stat); },
+      success: function(data, status, xhr) { draw_heat_map(data,stats); },
       data: "stats="+stats,
       async: false
     });
