@@ -58,7 +58,7 @@ $(function() {
       });
       $("#"+category_name+"-STATS").slideUp();
       $("#"+category_name).click(function() {
-        #("#choose_stats button").attr("class", "btn btn-default");
+        $("#choose_stats button").attr("class", "btn btn-default");
         $(this).attr("class","btn btn-info");
         $("#choose_stats div").slideUp();
         $("#"+category_name+"-STATS").slideDown();
