@@ -69,7 +69,7 @@ $(function() {
   /* Load list of statistic choices */
   var statVars = $.ajax({
     type: 'GET',
-    url: '/data/stat_vars.json',
+    url: '/data/stat_vars_new.json',
     dataType: 'json',
     success: function(optionData, status, xhr) { listStats(optionData); },
     data: {},
