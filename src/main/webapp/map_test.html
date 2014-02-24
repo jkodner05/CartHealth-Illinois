@@ -2,6 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="/styles/map_test.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfrkJjS7cvit1W_VmnryuuVvnEUMX8IEs&sensor=false"></script>
     <script src="/scripts/map_test.js"></script>
@@ -17,10 +18,11 @@
 	</div>
     <div id="control">
       <h1>Choose a statistic to generate a heatmap:</h1>
-      <form id="countyForm" action="">
-        <select name="stat_vars" id="stat_vars">
-        </select>
-        <input type="button" id="loadMap" value="Load Map">
+      <form id="control_form" action="">
+        <div name="choose_stats" id="choose_stats">
+        </div>
+        <input type="hidden" id="stat_vars" val="">
+        <button class="btn btn-primary" id="load_data">Load Data</button>
       </form>
 	  <div>
 	  <p></p>

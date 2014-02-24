@@ -45,8 +45,22 @@ $(function() {
   });
   
   function listStats(optionData) {
-    $.each(optionData, function(stat_name, stat_abbr) {
-      $("#stat_vars").append("<option value=" + stat_abbr + ">" + stat_name + "</option>");
+    $.each(optionData, function(category_name, category_statistics) {
+      $("#choose_stats").append("<button class=\"btn btn-default\" id=" + category_name + ">" + category_name + "</button>");
+      $("#choose_stats".append("<div id=" + stat_abbr + "-STATS>");
+      $.each(category_statistics, function(stat_name, stat_abbr) {
+        $("#"+category_name+"-STATS").append("<button class=\"btn btn-default\" id=" + stat_abbr + ">" + stat_name + "</button">);
+        $("#"+stat_abbr).click(function() {
+          $(this).attr("class","btn btn-success");
+          $("#stat_vars").val(stat_name);
+        });
+      });
+      $("#"+category_name+"-STATS").slideUp();
+      $("#"+category_name).click(function() {
+        $(this).attr("class","btn btn-info");
+        $("#choose_stats div").slideUp();
+        $("#"+category_name+"-STATS").slideDown();
+      });
     });
   }
   
@@ -81,7 +95,7 @@ $(function() {
      }
     });
   }
-  $("#loadMap").click(function() {
+  $("#load_data").click(function() {
     var stat = $("#stat_vars").val();
     var stats = new Array();
     stats[0] = stat;
