@@ -44,6 +44,7 @@ $(function() {
     async: false
   });
   
+  /* Create a menu for the user to choose statistics from */
   function create_menu(option_data) {
     $.each(option_data, function(category_name, category_statistics) {
       $("#choose_stats").append("<button class=\"btn btn-default\" id=" + category_name + ">" + category_name + "</button>");
@@ -83,7 +84,7 @@ $(function() {
     async: false
   });
   
-  /* Submit user input */
+  /* Redraw map based on statistic values */
   function draw_heat_map(color_data, stat) {
     var county_data = color_data[stat];
     $.each(county_data, function(county_name, text) {
@@ -105,6 +106,7 @@ $(function() {
     });
   }
   
+  /* Load data from server for statistics chosen by user */
   function load_data(stats) {
     var bounce = $.ajax({
       type: "GET",
@@ -119,5 +121,5 @@ $(function() {
       async: false
     });
     return false;
-  });
+  }
 });
