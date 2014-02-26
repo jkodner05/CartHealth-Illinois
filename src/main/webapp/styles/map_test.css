@@ -105,5 +105,8 @@ margin-top: 2em;
 	font-size: .9em;
 	text-align: center;
 	color: #ffffff;
-	a:link {color:#FFFFFF; text-decoration: none;}
+}
+
+#footer a:link{
+	color:#ffffff;
 }
