@@ -72,7 +72,7 @@ public class ElasticSearch {
 	{
 		float span = max - min;
 		float portion = val - min;
-		int h = (int)((portion/span)*360.0);
+		int h = (int)((portion/span)*240.0);
 		return h + "," + SATURATION + "," + LIGHTNESS;
 	}
 	

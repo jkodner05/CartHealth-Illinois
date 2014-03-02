@@ -45,32 +45,38 @@ $(function() {
   });
   
   /* Create a menu for the user to choose statistics from */
+  var stats = new Array();
+  
+  function display_choice(stat_var, stat_abbr) {
+    $("#choose_stats div").children().attr("class","btn btn-default");
+    $(stat_var).attr("class","btn btn-success");
+    stats[0] = stat_abbr;
+    load_data(stats);
+    $("#choose_stats div").slideUp();
+    $("#map_canvas").slideDown();
+  }
+  
+  function switch_category(category_name) {
+    $(".show_data").slideUp();
+    if ($("#"+category_name+"-STATS").attr("diplay")===("none") {
+      $("#choose_category button").attr("class", "btn btn-default");
+      $("#choose_stats div").slideUp();
+      $("#"+category_name).attr("class","btn btn-info");
+      $("#"+category_name+"-STATS").slideDown();
+    }    
+    return false;
+  }
+  
   function create_menu(option_data) {
     $.each(option_data, function(category_name, category_statistics) {
       $("#choose_category").append("<button class=\"btn btn-default\" id=" + category_name + ">" + category_name + "</button>");
       $("#choose_stats").append("<div class=\"well\" id=" + category_name + "-STATS>");
       $.each(category_statistics, function(stat_name, stat_abbr) {
         $("#"+category_name+"-STATS").append("<button class=\"btn btn-default\" id=" + stat_abbr + ">" + stat_name + "</button>");
-        $("#"+stat_abbr).click(function() {
-          $("#choose_stats div").children().attr("class","btn btn-default");
-          $(this).attr("class","btn btn-success");
-          var stats = new Array();
-          stats[0] = stat_abbr;
-          load_data(stats);
-          $("#choose_stats div").slideUp();
-          $("#map_canvas").slideDown();
-          return false;
-        });
+        $("#"+stat_abbr).click(display_choice(stat_var,stat_abbr));
       });
       $("#"+category_name+"-STATS").slideUp();
-      $("#"+category_name).click(function() {
-        $("#map_canvas").slideUp();
-        $("#choose_category button").attr("class", "btn btn-default");
-        $(this).attr("class","btn btn-info");
-        $("#choose_stats div").slideUp();
-        $("#"+category_name+"-STATS").slideDown();
-        return false;
-      });
+      $("#"+category_name).click(switch_category(category_name));
     });
   }
   
@@ -84,12 +90,12 @@ $(function() {
     async: false
   });
   
-  /* Redraw map based on values of the first statistic chosen*/
+  /* Redraw map based on values of the chosen statistic*/
   function draw_heat_map(color_data, stats) {
     stat=stats[0];
     var county_data = color_data[stat];
-    $.each(county_data, function(county_name, text) {
-      var data = $.parseJSON(text);
+    gm.event.clearInstanceListeners(map);
+    $.each(county_data, function(county_name, data) {
       color = "hsl(" + data["color"] + ")";
       if (counties[county_name]) {
         counties[county_name].setOptions({
@@ -100,10 +106,13 @@ $(function() {
           fillColor: color,
           fillOpacity: 0.34
         });
-     }
-     else {
-      alert("Could not find county: " + county_name + "!");
-     }
+        gm.event.addListener(map, "click", function(overlay,latlng) {
+          map.openInfoWindowHtml(overlay, "<strong>"+data["value"]+"</strong>");
+        });
+      }
+      else {
+       alert("Could not find county: " + county_name + "!");
+      }
     });
   }
   
