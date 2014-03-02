@@ -1,1 +1,1 @@
-web: java -cp target/classes:target/dependency/* com.carthealth.elasticsearch.Main
+web: java -cp target/classes:target/dependency/* com.carthealth.Main

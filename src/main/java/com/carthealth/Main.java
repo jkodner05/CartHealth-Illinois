@@ -1,4 +1,4 @@
-package com.carthealth.elasticsearch;
+package com.carthealth;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.WebAppContext;
